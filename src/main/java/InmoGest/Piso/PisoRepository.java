@@ -1,5 +1,6 @@
-package usuariosInmoGest.demo;
+package InmoGest.Piso;
 
+import InmoGest.Usuario.Usuario;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 

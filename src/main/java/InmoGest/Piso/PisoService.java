@@ -1,5 +1,7 @@
-package usuariosInmoGest.demo;
+package InmoGest.Piso;
 
+import InmoGest.Usuario.Usuario;
+import InmoGest.Usuario.UsuarioService;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

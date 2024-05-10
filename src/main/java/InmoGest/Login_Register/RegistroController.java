@@ -1,5 +1,7 @@
-package usuariosInmoGest.demo;
+package InmoGest.Login_Register;
 
+import InmoGest.Usuario.Usuario;
+import InmoGest.Usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

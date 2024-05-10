@@ -1,4 +1,4 @@
-package usuariosInmoGest.demo;
+package InmoGest.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;

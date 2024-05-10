@@ -1,5 +1,6 @@
-package usuariosInmoGest.demo;
+package InmoGest.Piso;
 
+import InmoGest.Usuario.Usuario;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;

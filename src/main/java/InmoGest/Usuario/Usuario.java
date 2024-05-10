@@ -1,5 +1,6 @@
-package usuariosInmoGest.demo;
+package InmoGest.Usuario;
 
+import InmoGest.Piso.Piso;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

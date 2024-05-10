@@ -1,4 +1,4 @@
-package usuariosInmoGest.demo;
+package InmoGest.Login_Register;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
