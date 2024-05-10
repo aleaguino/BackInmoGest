@@ -29,12 +29,12 @@
         
         <form method="post" th:action="@{/piso/modificar/{id}(id=${piso.id})}">
             <div class="mb-3">
-                <label for="marca" class="form-label">Marca:</label>
-                <input type="text" class="form-control" id="marca" name="marca" th:value="${piso.marca}">
+                <label for="ciudad" class="form-label">Ciudad:</label>
+                <input type="text" class="form-control" id="ciudad" name="ciudad" th:value="${piso.ciudad}">
             </div>
             <div class="mb-3">
-                <label for="modelo" class="form-label">Modelo:</label>
-                <input type="text" class="form-control" id="modelo" name="modelo" th:value="${piso.modelo}">
+                <label for="ubicacion" class="form-label">Modelo:</label>
+                <input type="text" class="form-control" id="ubicacion" name="ubicacion" th:value="${piso.ubicacion}">
             </div>
             <div class="mb-3">
                 <label for="annos" class="form-label">Año:</label>

@@ -24,11 +24,12 @@ public class Piso implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column (name= "ciudad")
     private String ciudad;
     @Column (name = "ubicacion")
     private String ubicacion;
     
-    @Column (name = "año_construccion")
+    @Column (name = "año")
     private Integer anno;
 
     @ManyToOne
@@ -37,5 +38,12 @@ public class Piso implements Serializable {
 
     // Getters y setters, constructores, etc.
     
+    public String getCiudad() {
+    return ciudad;
+}
+    public String getUbicacion() {
+    return ubicacion;
+}
+
 }
 

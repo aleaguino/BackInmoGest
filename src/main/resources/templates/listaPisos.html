@@ -42,8 +42,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </thead>
                     <tbody class="table-group-divider">
                         <tr th:each="piso : ${pisos}">
-                            <td th:text="${piso.marca}"></td>
-                            <td th:text="${piso.modelo}"></td>
+                            <td th:text="${piso.ciudad}"></td>
+                            <td th:text="${piso.ubicacion}"></td>
                             <td th:text="${piso.anno}"></td>    
                             <td>
                                 <a class="btn btn-primary" th:href="@{/piso/modificar/{id}(id=${piso.id})}">Editar</a>
