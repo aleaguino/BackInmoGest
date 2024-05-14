@@ -12,11 +12,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Lista</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -48,6 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <td>
                                 <a class="btn btn-primary" th:href="@{/piso/modificar/{id}(id=${piso.id})}">Editar</a>
                                 <button type="button" class="btn btn-danger" th:attr="onclick=|eliminarPiso('${piso.id}')|">Borrar</button>
+                                <a class="btn btn-warning" th:href="@{/piso/detalles/{id}(id=${piso.id})}">Detalles</a>
                             </td>
                         </tr>
                     </tbody>
@@ -72,6 +68,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 console.log('Eliminar piso con id:', id);
             }
         }
+        
+        function detallesPiso(id) {
+            window.location.href = '/piso/detalles/' + id;
+            console.log('Ver los detalles del piso con id:', id);
+        }
+
     </script>
 </body>
 </html>

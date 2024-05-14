@@ -2,6 +2,7 @@ package InmoGest.Piso;
 
 import InmoGest.Usuario.Usuario;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,9 +30,10 @@ public class Piso implements Serializable {
     private String ciudad;
     @Column (name = "ubicacion")
     private String ubicacion;
-    
     @Column (name = "año")
     private Integer anno;
+    @Column (name = "precio")
+    private double precio;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -44,6 +46,9 @@ public class Piso implements Serializable {
 }
     public String getUbicacion() {
     return ubicacion;
+}
+    public double getPrecio() {
+    return precio;
 }
 
 }

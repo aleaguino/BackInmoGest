@@ -71,6 +71,8 @@ public class PisoController {
         pisoExistente.setCiudad(piso.getCiudad());
         pisoExistente.setUbicacion(piso.getUbicacion());
         pisoExistente.setAnno(piso.getAnno());
+        pisoExistente.setPrecio(piso.getPrecio());
+
 
         pisoService.guardarPiso(pisoExistente, pisoExistente.getUsuario().getId());
     }
@@ -84,4 +86,11 @@ public class PisoController {
         pisoService.eliminarPiso(id);
         return "redirect:/piso/piso";
     }
+    
+    @GetMapping("/detalles/{id}")
+public String detallesPiso(@PathVariable Long id, Model model) {
+    Piso piso = pisoService.obtenerPisoPorId(id);
+    model.addAttribute("piso", piso);
+    return "detallesPiso";
+}
 }
