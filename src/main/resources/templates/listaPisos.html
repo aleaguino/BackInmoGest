@@ -18,6 +18,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ml-auto">
+                    <<li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/editar}">Editar Usuario</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -30,8 +35,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <thead>
                         <tr>
                             <th>Ciudad</th>
-                            <th>Ubicacion</th>
+                            <th>Dirección</th>
                             <th>Año</th>
+                            <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
@@ -39,7 +45,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <tr th:each="piso : ${pisos}">
                             <td th:text="${piso.ciudad}"></td>
                             <td th:text="${piso.ubicacion}"></td>
-                            <td th:text="${piso.anno}"></td>    
+                            <td th:text="${piso.anno}"></td>
+                            <td th:text="${piso.estado}"></td> 
                             <td>
                                 <a class="btn btn-primary" th:href="@{/piso/modificar/{id}(id=${piso.id})}">Editar</a>
                                 <button type="button" class="btn btn-danger" th:attr="onclick=|eliminarPiso('${piso.id}')|">Borrar</button>

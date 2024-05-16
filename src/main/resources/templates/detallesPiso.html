@@ -16,29 +16,71 @@
 
     <div class="container mt-4">
         <h1 class="text-center">Detalles del Piso</h1>
+
+        <!-- Tabla de Datos Generales -->
+        <div class="mb-4">
+            <h2 class="text-center">Datos Generales</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Ciudad</th>
+                    <td th:text="${piso.ciudad}">Ciudad</td>
+                </tr>
+                <tr>
+                    <th>Dirección</th>
+                    <td th:text="${piso.ubicacion}">Dirección del Piso</td>
+                </tr>
+                <tr>
+                    <th>Año</th>
+                    <td th:text="${piso.anno}">Año de construcción</td>
+                </tr>
+                <tr>
+                    <th>Precio de compra</th>
+                    <td th:text="${piso.precio}">Precio de compra</td>
+                </tr>
+                <tr>
+                    <th>Estado (Libre/Alquilado)</th>
+                    <td th:text="${piso.estado}">Estado del Piso (Ocupado/Libre)</td>
+                </tr>
+            </table>
+        </div>
         
-        <table class="table table-striped">
-            <tr>
-                <th>Ciudad</th>
-                <td th:text="${piso.ciudad}">Ciudad</td>
-            </tr>
-            <tr>
-                <th>Dirección</th>
-                <td th:text="${piso.ubicacion}">Dirección del Piso</td>
-            </tr>
-            <tr>
-                <th>Año</th>
-                <td th:text="${piso.anno}">Año de construcción</td>
-            </tr>
-            <tr>
-                <th>Precio</th>
-                <td th:text="${piso.precio}">Precio de compra de la vivienda</td>
-            </tr>
-        </table>
-        
+        <!-- Tabla de Ingresos -->
+        <div class="mb-4">
+            <h2 class="text-center">Ingresos</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Ingreso Mensual</th>
+                    <td th:text="${piso.ingresoMensual}">Ingreso Mensual</td>
+                </tr>
+                <tr>
+                    <th>Ingreso Anual</th>
+                    <td th:text="${piso.ingresosAnuales}">Ingreso Anual</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Tabla de Datos del Inquilino -->
+        <div>
+            <h2 class="text-center">Datos del Inquilino</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Nombre del inquilino</th>
+                    <td th:text="${piso.inquilinoNombre}">Nombre del inquilino</td>
+                </tr>
+                <tr>
+                    <th>DNI del inquilino</th>
+                    <td th:text="${piso.inquilinoDNI}">DNI del inquilino</td>
+                </tr>
+                <tr>
+                    <th>IBAN del inquilino</th>
+                    <td th:text="${piso.inquilinoIBAN}">IBAN del inquilino</td>
+                </tr>
+            </table>
+        </div>
+
         <!-- Botón para editar -->
         <div class="text-center">
-                <a class="btn btn-primary" th:href="@{/piso/modificar/{id}(id=${piso.id})}">Editar</a>
+            <a class="btn btn-primary" th:href="@{/piso/modificar/{id}(id=${piso.id})}">Editar</a>
         </div>
     </div>
 

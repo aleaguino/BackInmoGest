@@ -19,7 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <input type="text" id="ciudad" name="ciudad" th:field="*{ciudad}" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="ubicacion" class="form-label">Ubicacion:</label>
+                <label for="ubicacion" class="form-label">Dirección:</label>
                 <input type="text" id="ubicacion" name="ubicacion" th:field="*{ubicacion}" class="form-control" required>
             </div>
             <div class="mb-3">
@@ -30,6 +30,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <label for="precio" class="form-label">Precio:</label>
                 <input type="number" id="precio" name="precio" th:field="*{precio}" class="form-control" required>
             </div>
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado (Libre/Alquilado):</label>
+                <input type="text" id="estado" name="estado" th:field="*{estado}" class="form-control" required>
+            </div>
+            
+            <!-- INQUILINO -->
+            <div class="mb-3">
+                <label for="inquilinoNombre" class="form-label">Nombre del Inquilino:</label>
+                <input type="text" id="inquilinoNombre" name="inquilinoNombre" th:field="*{inquilinoNombre}" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="inquilinoDNI" class="form-label">DNI del Inquilino:</label>
+                <input type="text" id="inquilinoDNI" name="inquilinoDNI" th:field="*{inquilinoDNI}" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="inquilinoIBAN" class="form-label">IBAN del Inquilino:</label>
+                <input type="text" id="inquilinoIBAN" name="inquilinoIBAN" th:field="*{inquilinoIBAN}" class="form-control" required>
+            </div>
+            
+            <!-- INGRESOS -->
+            <div class="mb-3">
+                <label for="ingresoMensual" class="form-label">Ingreso (Mensual):</label>
+                <input type="number" id="ingresoMensual" name="ingresoMensual" th:field="*{ingresoMensual}" class="form-control" required>
+            </div>
+            
+            
             <input type="hidden" name="idUsuario" th:value="${usuario.id}" />
             <button type="submit" class="btn btn-primary">Guardar Piso</button>
         </form>

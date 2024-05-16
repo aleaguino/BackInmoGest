@@ -34,6 +34,23 @@ public class Piso implements Serializable {
     private Integer anno;
     @Column (name = "precio")
     private double precio;
+    @Column (name = "estado")
+    private String estado;
+    
+    //DATOS INQUILINO
+    @Column (name = "inquilinoNombre")
+    private String inquilinoNombre;
+    @Column (name = "inquilinoDNI")
+    private String inquilinoDNI;
+    @Column (name = "inquilinoIBAN")
+    private String inquilinoIBAN;
+    
+    //INGRESOS
+    @Column (name = "ingresoMensual")
+    private int ingresoMensual;
+    
+    private double ingresosAnuales;
+
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -50,6 +67,25 @@ public class Piso implements Serializable {
     public double getPrecio() {
     return precio;
 }
+    public String getInquilinoNombre() {
+    return inquilinoNombre;
+}
+    public String getInquilinoDNI() {
+    return inquilinoDNI;
+}
+    public String getInquilinoIBAN() {
+    return inquilinoIBAN;
+}
+    public String getEstado(){
+    return estado;
+}
+    public int getIngresoMensual(){
+    return ingresoMensual;
+    
+}
+    
+    public void setIngresosAnuales(double ingresosAnuales) {
+        this.ingresosAnuales = ingresosAnuales;
+    }
 
 }
-

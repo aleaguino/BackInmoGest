@@ -72,11 +72,20 @@ public class PisoController {
         pisoExistente.setUbicacion(piso.getUbicacion());
         pisoExistente.setAnno(piso.getAnno());
         pisoExistente.setPrecio(piso.getPrecio());
+        pisoExistente.setEstado(piso.getEstado());
+        
+        //INGRESOS
+        pisoExistente.setIngresoMensual(piso.getIngresoMensual());
+        
+        //INQUILINO
+        pisoExistente.setInquilinoNombre(piso.getInquilinoNombre());
+        pisoExistente.setInquilinoDNI(piso.getInquilinoDNI());
+        pisoExistente.setInquilinoIBAN(piso.getInquilinoIBAN());
 
 
         pisoService.guardarPiso(pisoExistente, pisoExistente.getUsuario().getId());
     }
-    return "redirect:/piso/piso";
+    return "redirect:/piso/detalles/{id}";
 }
 
 
@@ -90,6 +99,11 @@ public class PisoController {
     @GetMapping("/detalles/{id}")
 public String detallesPiso(@PathVariable Long id, Model model) {
     Piso piso = pisoService.obtenerPisoPorId(id);
+    
+    //CALCULAR INGRESOS ANUALES
+    double ingresosAnuales = piso.getIngresoMensual() * 12;
+    piso.setIngresosAnuales(ingresosAnuales);
+    
     model.addAttribute("piso", piso);
     return "detallesPiso";
 }

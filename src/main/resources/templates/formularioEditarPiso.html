@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Modificar Ordenador</title>
+    <title>Modificar Piso</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -33,18 +33,42 @@
                 <input type="text" class="form-control" id="ciudad" name="ciudad" th:value="${piso.ciudad}">
             </div>
             <div class="mb-3">
-                <label for="ubicacion" class="form-label">Modelo:</label>
+                <label for="ubicacion" class="form-label">Dirección:</label>
                 <input type="text" class="form-control" id="ubicacion" name="ubicacion" th:value="${piso.ubicacion}">
             </div>
             <div class="mb-3">
-                <label for="annos" class="form-label">Año:</label>
+                <label for="annos" class="form-label">Año de construcción:</label>
                 <input type="text" class="form-control" id="anno" name="anno" th:value="${piso.anno}">
             </div>
             <div class="mb-3">
-                <label for="precio" class="form-label">Precio:</label>
+                <label for="precio" class="form-label">Precio de compra:</label>
                 <input type="text" class="form-control" id="precio" name="precio" th:value="${piso.precio}">
             </div>
-    
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado (Libre/Alquilado):</label>
+                <input type="text" class="form-control" id="estado" name="estado" th:value="${piso.estado}">
+            </div>
+            
+            <!-- INQUILINO -->
+            <div class="mb-3">
+                <label for="inquilinoNombre" class="form-label">Nombre del Inquilino:</label>
+                <input type="text" class="form-control" id="inquilinoNombre" name="inquilinoNombre" th:value="${piso.inquilinoNombre}">
+            </div>
+            <div class="mb-3">
+                <label for="inquilinoDNI" class="form-label">DNI del Inquilino:</label>
+                <input type="text" class="form-control" id="inquilinoDNI" name="inquilinoDNI" th:value="${piso.inquilinoDNI}">
+            </div>
+            <div class="mb-3">
+                <label for="inquilinoIBAN" class="form-label">IBAN del Inquilino:</label>
+                <input type="text" class="form-control" id="inquilinoIBAN" name="inquilinoIBAN" th:value="${piso.inquilinoIBAN}">
+            </div>
+            
+            <!-- INGRESOS -->
+            <div class="mb-3">
+                <label for="ingresoMensual" class="form-label">Ingreso Mensual:</label>
+                <input type="number" class="form-control" id="ingresoMensual" name="ingresoMensual" th:value="${piso.ingresoMensual}">
+            </div>
+            
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
     </div>
