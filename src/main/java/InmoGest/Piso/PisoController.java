@@ -28,7 +28,7 @@ public class PisoController {
     @GetMapping("/piso")
     public String listarPisosPorUsuario(Model model, Principal principal) {
         String username = principal.getName();
-        Usuario usuario = usuarioService.obtenerUsuarioPorUsername(username);
+        Usuario usuario = usuarioService.findByUsername(username);
         List<Piso> pisos = pisoService.obtenerPisosPorUsuario(usuario);
         model.addAttribute("usuario", usuario);
         model.addAttribute("pisos", pisos);
@@ -38,7 +38,7 @@ public class PisoController {
     @GetMapping("/formulario")
     public String mostrarFormularioPiso(Model model, Authentication authentication) {
         String nombreUsuario = authentication.getName();
-        Usuario usuario = usuarioService.obtenerUsuarioPorUsername(nombreUsuario);
+        Usuario usuario = usuarioService.findByUsername(nombreUsuario);
         model.addAttribute("usuario", usuario);
         model.addAttribute("piso", new Piso());
         return "formularioPiso";

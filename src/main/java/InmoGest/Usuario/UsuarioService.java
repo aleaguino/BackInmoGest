@@ -28,7 +28,7 @@ public class UsuarioService implements UserDetailsService {
         return new User(usuario.getUsername(), usuario.getPassword(), new ArrayList<>());
     }
 
-    public Usuario obtenerUsuarioPorUsername(String username) {
+    public Usuario findByUsername(String username) {
         return usuarioRepository.findByUsername(username);
     }
 
@@ -61,6 +61,10 @@ public class UsuarioService implements UserDetailsService {
             usuario.setPassword(passwordEncoder.encode(nuevaPassword));
         }
 
+        usuarioRepository.save(usuario);
+    }
+    
+    public void save(Usuario usuario) {
         usuarioRepository.save(usuario);
     }
 }
