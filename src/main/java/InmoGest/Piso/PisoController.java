@@ -82,7 +82,16 @@ public class PisoController {
         pisoExistente.setInquilinoDNI(piso.getInquilinoDNI());
         pisoExistente.setInquilinoIBAN(piso.getInquilinoIBAN());
 
-
+        //GASTOS
+        pisoExistente.setComunidad(piso.getComunidad());
+        pisoExistente.setIbi(piso.getIbi());
+        pisoExistente.setSeguro(piso.getSeguro());
+        pisoExistente.setReforma(piso.getReforma());
+        pisoExistente.setAverias(piso.getAverias());
+        pisoExistente.setAgua(piso.getAgua());
+        pisoExistente.setLuz(piso.getLuz());
+        pisoExistente.setGas(piso.getGas());
+        
         pisoService.guardarPiso(pisoExistente, pisoExistente.getUsuario().getId());
     }
     return "redirect:/piso/detalles/{id}";

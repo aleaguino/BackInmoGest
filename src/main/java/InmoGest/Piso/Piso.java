@@ -33,7 +33,7 @@ public class Piso implements Serializable {
     @Column (name = "año")
     private Integer anno;
     @Column (name = "precio")
-    private double precio;
+    private String precio;
     @Column (name = "estado")
     private String estado;
     
@@ -50,7 +50,24 @@ public class Piso implements Serializable {
     private int ingresoMensual;
     
     private double ingresosAnuales;
-
+    
+    //GASTOS
+    @Column (name = "comunidad")
+    private String comunidad;
+    @Column (name = "ibi")
+    private String ibi;
+    @Column (name = "seguro")
+    private String seguro;
+    @Column (name = "reforma")
+    private String reforma;
+    @Column (name = "averias")
+    private String averias;
+    @Column (name = "agua")
+    private String agua;
+    @Column (name = "luz")
+    private String luz;
+    @Column (name = "gas")
+    private String gas;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -64,7 +81,7 @@ public class Piso implements Serializable {
     public String getUbicacion() {
     return ubicacion;
 }
-    public double getPrecio() {
+    public String getPrecio() {
     return precio;
 }
     public String getInquilinoNombre() {
@@ -80,9 +97,33 @@ public class Piso implements Serializable {
     return estado;
 }
     public int getIngresoMensual(){
-    return ingresoMensual;
-    
+    return ingresoMensual; 
 }
+    public String getComunidad(){
+    return comunidad;
+}
+    public String getIbi(){
+    return ibi;
+}
+    public String getSeguro(){
+    return seguro;
+}
+    public String getReforma(){
+    return reforma;
+}
+    public String getAverias(){
+    return averias;
+}
+    public String getAgua(){
+    return agua;
+}
+    public String getLuz(){
+    return luz;  
+}
+    public String getGas(){
+    return gas;
+}
+    
     
     public void setIngresosAnuales(double ingresosAnuales) {
         this.ingresosAnuales = ingresosAnuales;
