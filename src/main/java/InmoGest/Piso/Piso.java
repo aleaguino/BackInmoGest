@@ -47,27 +47,29 @@ public class Piso implements Serializable {
     
     //INGRESOS
     @Column (name = "ingresoMensual")
-    private int ingresoMensual;
+    private double ingresoMensual;
     
     private double ingresosAnuales;
     
+    //private double gastosTotales= comunidad;
+    
     //GASTOS
     @Column (name = "comunidad")
-    private String comunidad;
+    private double comunidad;
     @Column (name = "ibi")
-    private String ibi;
+    private double ibi;
     @Column (name = "seguro")
-    private String seguro;
+    private double seguro;
     @Column (name = "reforma")
-    private String reforma;
+    private double reforma;
     @Column (name = "averias")
-    private String averias;
+    private double averias;
     @Column (name = "agua")
-    private String agua;
+    private double agua;
     @Column (name = "luz")
-    private String luz;
+    private double luz;
     @Column (name = "gas")
-    private String gas;
+    private double gas;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -96,31 +98,31 @@ public class Piso implements Serializable {
     public String getEstado(){
     return estado;
 }
-    public int getIngresoMensual(){
+    public double getIngresoMensual(){
     return ingresoMensual; 
 }
-    public String getComunidad(){
+    public double getComunidad(){
     return comunidad;
 }
-    public String getIbi(){
+    public double getIbi(){
     return ibi;
 }
-    public String getSeguro(){
+    public double getSeguro(){
     return seguro;
 }
-    public String getReforma(){
+    public double getReforma(){
     return reforma;
 }
-    public String getAverias(){
+    public double getAverias(){
     return averias;
 }
-    public String getAgua(){
+    public double getAgua(){
     return agua;
 }
-    public String getLuz(){
+    public double getLuz(){
     return luz;  
 }
-    public String getGas(){
+    public double getGas(){
     return gas;
 }
     
@@ -128,5 +130,7 @@ public class Piso implements Serializable {
     public void setIngresosAnuales(double ingresosAnuales) {
         this.ingresosAnuales = ingresosAnuales;
     }
+    
+    
 
 }

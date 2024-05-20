@@ -30,8 +30,17 @@ public class PisoController {
         String username = principal.getName();
         Usuario usuario = usuarioService.findByUsername(username);
         List<Piso> pisos = pisoService.obtenerPisosPorUsuario(usuario);
+        
+        // Calcular el total de ingresos y gastos
+        double totalIngresos = pisos.stream().mapToDouble(Piso::getIngresoMensual).sum();
+        double totalGastos = pisos.stream().mapToDouble(piso -> piso.getComunidad() + piso.getIbi() + piso.getSeguro() + piso.getAgua() + piso.getLuz() + piso.getGas()).sum();
+        double diferencia = totalIngresos - totalGastos;
+        
         model.addAttribute("usuario", usuario);
         model.addAttribute("pisos", pisos);
+        model.addAttribute("totalIngresos", totalIngresos);
+        model.addAttribute("totalGastos", totalGastos);
+        model.addAttribute("diferencia", diferencia);
         return "listaPisos";
     }
   
@@ -106,7 +115,7 @@ public class PisoController {
     }
     
     @GetMapping("/detalles/{id}")
-public String detallesPiso(@PathVariable Long id, Model model) {
+    public String detallesPiso(@PathVariable Long id, Model model) {
     Piso piso = pisoService.obtenerPisoPorId(id);
     
     //CALCULAR INGRESOS ANUALES

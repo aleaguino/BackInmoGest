@@ -114,6 +114,10 @@
                     <th>Gas</th>
                     <td th:text="${piso.gas}">Gas</td>
                 </tr>
+                <tr>
+                    <th>Total Gastos Mensuales</th>
+                    <td th:text="${piso.comunidad + piso.ibi + piso.seguro + piso.agua + piso.luz + piso.gas}">Total Gastos Mensuales</td>
+                </tr>
             </table>
         </div>
 
