@@ -77,6 +77,45 @@
                 </tr>
             </table>
         </div>
+        
+        <!-- Tabla de Gastos -->
+        <div>
+            <h2 class="text-center">Gastos</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Comunidad</th>
+                    <td th:text="${piso.comunidad}">Comunidad</td>
+                </tr>
+                <tr>
+                    <th>IBI</th>
+                    <td th:text="${piso.ibi}">IBI</td>
+                </tr>
+                <tr>
+                    <th>Seguro</th>
+                    <td th:text="${piso.seguro}">Seguro</td>
+                </tr>
+                <tr>
+                    <th>Reforma</th>
+                    <td th:text="${piso.reforma}">Reforma</td>
+                </tr>
+                <tr>
+                    <th>Averias</th>
+                    <td th:text="${piso.averias}">Averias</td>
+                </tr>
+                <tr>
+                    <th>Agua</th>
+                    <td th:text="${piso.agua}">Agua</td>
+                </tr>
+                <tr>
+                    <th>Luz</th>
+                    <td th:text="${piso.luz}">Luz</td>
+                </tr>
+                <tr>
+                    <th>Gas</th>
+                    <td th:text="${piso.gas}">Gas</td>
+                </tr>
+            </table>
+        </div>
 
         <!-- Botón para editar -->
         <div class="text-center">
