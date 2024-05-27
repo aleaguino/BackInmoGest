@@ -2,7 +2,9 @@ package InmoGest.Piso;
 
 import InmoGest.Usuario.Usuario;
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Data
@@ -51,7 +56,6 @@ public class Piso implements Serializable {
     
     private double ingresosAnuales;
     
-    //private double gastosTotales= comunidad;
     
     //GASTOS
     @Column (name = "comunidad")
@@ -70,7 +74,15 @@ public class Piso implements Serializable {
     private double luz;
     @Column (name = "gas")
     private double gas;
+    
+    //IPC
+    @Column (name = "porcentajeIPC")
+    private double porcentajeIPC;
+    @Column(name = "fechaActualizacionIPC")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private LocalDate fechaActualizacionIPC;
 
+    
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
@@ -125,7 +137,13 @@ public class Piso implements Serializable {
     public double getGas(){
     return gas;
 }
-    
+    public double getPorcentajeIPC(){
+    return porcentajeIPC;
+}
+    public LocalDate getFechaActualizacionIPC(){
+    return fechaActualizacionIPC;
+}
+     
     
     public void setIngresosAnuales(double ingresosAnuales) {
         this.ingresosAnuales = ingresosAnuales;

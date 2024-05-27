@@ -56,9 +56,8 @@ public class PisoController {
    
     @PostMapping("/guardar")
     public String guardarPiso(@ModelAttribute("piso") Piso piso, @RequestParam("idUsuario") Long idUsuario) {
-        // (asegúrate de tener lógica para manejar correctamente las relaciones)
          pisoService.guardarPiso(piso, idUsuario);
-        return "redirect:/piso/piso";  // Redirige a donde sea necesario
+        return "redirect:/piso/piso";  // Redirige a dlista de pisos
     }
     
        @GetMapping("/modificar/{id}")
@@ -100,6 +99,11 @@ public class PisoController {
         pisoExistente.setAgua(piso.getAgua());
         pisoExistente.setLuz(piso.getLuz());
         pisoExistente.setGas(piso.getGas());
+        
+        // IPC
+        pisoExistente.setPorcentajeIPC(piso.getPorcentajeIPC());
+        pisoExistente.setFechaActualizacionIPC(piso.getFechaActualizacionIPC());
+        
         
         pisoService.guardarPiso(pisoExistente, pisoExistente.getUsuario().getId());
     }

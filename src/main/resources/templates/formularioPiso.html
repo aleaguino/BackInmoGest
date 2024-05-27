@@ -108,6 +108,15 @@
                     <label for="gas" class="form-label">Gas:</label>
                     <input type="number" id="gas" name="gas" th:field="*{gas}" class="form-control" required>
                 </div>
+                <div class="mb-3">
+                    <label for="porcentajeIPC" class="form-label">Porcentaje Subida IPC:</label>
+                    <input type="number" step="0.01" id="porcentajeIPC" name="porcentajeIPC" th:field="*{porcentajeIPC}" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="fechaActualizacionIPC" class="form-label">Fecha de última actualización del IPC:</label>
+                    <input type="date" id="fechaActualizacionIPC" name="fechaActualizacionIPC" th:field="*{fechaActualizacionIPC}" class="form-control" required>
+                </div>
+
             </div>
 
             <input type="hidden" name="idUsuario" th:value="${usuario.id}" />

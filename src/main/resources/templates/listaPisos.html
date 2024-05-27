@@ -11,31 +11,28 @@
             text-align: center;
         }
         .totals {
-            position: relative;
             margin-top: 20px;
-            height: 100px; /* Adjust as needed for spacing */
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 100px; /* Ajusta según sea necesario */
         }
-        .income, .expense, .difference {
-            font-size: 1.5em; /* Adjust font size as needed */
+        .totals div {
+            font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
         }
         .income {
-            position: absolute;
-            left: 0;
-            bottom: 0;
             color: green;
         }
         .expense {
-            position: absolute;
-            right: 0;
-            bottom: 0;
             color: red;
         }
         .difference {
+            font-weight: bold;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            bottom: -30px; /* Adjust to move it slightly below */
-            font-weight: bold;
+            bottom: -30px; /* Ajusta para moverlo un poco más abajo */
         }
     </style>
 </head>
@@ -90,7 +87,7 @@
                 <div class="text-center">
                     <a th:href="@{/piso/formulario}" class="btn btn-success">Agregar Piso</a>
                 </div>
-                <div class="totals text-center mt-4">
+                <div class="totals mt-4">
                     <div class="income">Total Ingresos: <span th:text="${totalIngresos}"></span></div>
                     <div class="expense">Total Gastos: <span th:text="${totalGastos}"></span></div>
                     <div class="difference">Diferencia: <span th:text="${diferencia}"></span></div>

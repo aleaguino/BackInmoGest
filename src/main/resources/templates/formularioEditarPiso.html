@@ -84,6 +84,14 @@
                     <label for="inquilinoIBAN" class="form-label">IBAN del Inquilino:</label>
                     <input type="text" class="form-control" id="inquilinoIBAN" name="inquilinoIBAN" th:value="${piso.inquilinoIBAN}" required>
                 </div>
+                <div class="mb-3">
+                    <label for="porcentajeIPC" class="form-label">Porcentaje a subir de IPC:</label>
+                    <input type="number" class="form-control" id="porcentajeIPC" name="porcentajeIPC" th:value="${piso.porcentajeIPC}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="fechaActualizacionIPC" class="form-label">Fecha de actualización del IPC:</label>
+                    <input type="date" class="form-control" id="fechaActualizacionIPC" name="fechaActualizacionIPC" th:value="${piso.fechaActualizacionIPC}" required>
+                </div>
             </div>
 
             <!-- Ingresos -->
