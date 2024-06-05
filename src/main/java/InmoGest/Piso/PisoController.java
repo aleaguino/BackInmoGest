@@ -130,4 +130,28 @@ public class PisoController {
     model.addAttribute("piso", piso);
     return "detallesPiso";
 }
+     @GetMapping("/buscar")
+    public String buscarPisos(@RequestParam("direccion") String direccion, Principal principal, Model model) {
+        String username = principal.getName();
+        Usuario usuario = usuarioService.findByUsername(username);
+        List<Piso> pisos;
+
+        if (direccion != null && !direccion.isEmpty()) {
+            pisos = pisoService.buscarPisosPorDireccionYUsuario(direccion, usuario);
+        } else {
+            pisos = pisoService.obtenerPisosPorUsuario(usuario);
+        }
+
+        double totalIngresos = pisos.stream().mapToDouble(Piso::getIngresoMensual).sum();
+        double totalGastos = pisos.stream().mapToDouble(piso -> piso.getComunidad() + piso.getIbi() + piso.getSeguro() + piso.getAgua() + piso.getLuz() + piso.getGas()).sum();
+        double diferencia = totalIngresos - totalGastos;
+
+        model.addAttribute("usuario", usuario);
+        model.addAttribute("pisos", pisos);
+        model.addAttribute("totalIngresos", totalIngresos);
+        model.addAttribute("totalGastos", totalGastos);
+        model.addAttribute("diferencia", diferencia);
+        model.addAttribute("direccion", direccion);
+        return "listaPisos";
+    }
 }

@@ -36,7 +36,10 @@ public class PisoService {
     public void eliminarPiso(Long id) {
     pisoRepository.deleteById(id);
     }
-
-
+    
+    public List<Piso> buscarPisosPorDireccionYUsuario(String direccion, Usuario usuario) {
+        return pisoRepository.findByUbicacionContainingAndUsuario(direccion, usuario);
+    }
+        
 }
 
