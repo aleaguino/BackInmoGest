@@ -89,6 +89,7 @@ public class PisoController {
         pisoExistente.setInquilinoNombre(piso.getInquilinoNombre());
         pisoExistente.setInquilinoDNI(piso.getInquilinoDNI());
         pisoExistente.setInquilinoIBAN(piso.getInquilinoIBAN());
+        pisoExistente.setObservacion(piso.getObservacion());
 
         //GASTOS
         pisoExistente.setComunidad(piso.getComunidad());

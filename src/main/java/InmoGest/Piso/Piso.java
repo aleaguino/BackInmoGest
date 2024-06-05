@@ -49,6 +49,8 @@ public class Piso implements Serializable {
     private String inquilinoDNI;
     @Column (name = "inquilinoIBAN")
     private String inquilinoIBAN;
+    @Column (name = "observacion")
+    private String observacion;
     
     //INGRESOS
     @Column (name = "ingresoMensual")
@@ -142,6 +144,9 @@ public class Piso implements Serializable {
 }
     public LocalDate getFechaActualizacionIPC(){
     return fechaActualizacionIPC;
+}
+    public String getObservacion(){
+    return observacion;
 }
      
     
