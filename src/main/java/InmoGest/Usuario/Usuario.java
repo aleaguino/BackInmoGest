@@ -36,6 +36,7 @@ public class Usuario implements Serializable {
     private String password;
     private String email;
     private int telefono;
+    private String fecha;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Piso> pisos = new ArrayList<>();

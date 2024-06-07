@@ -1,3 +1,5 @@
+package InmoGest.Usuario;
+
 import InmoGest.Usuario.Usuario;
 import InmoGest.Usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;

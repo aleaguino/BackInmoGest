@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>InmoGest - Gestión de Inmuebles</title>
     <meta charset="UTF-8">
@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" aria-current="page" th:href="@{/}">
-                 <img src="resources/assets/inmogest.png" alt="InmoGest">
+                 <img th:src="@{C:\Users\aleag\OneDrive\Escritorio\InmoGest\InmoGest\src\main\resources\assets\inmogest.png}" alt="InmoGest">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -96,10 +96,6 @@
                 <p>Facilita la colaboración entre los usuarios, permitiendo la compartición de información y recursos.</p>
             </div>
         </div>
-        <!-- Contenedor para el iframe del mapa -->
-                <div class="iframe-container">
-                    <iframe src="https://lab.eldiario.es/elections-maps/mapas-censales/alquileres-2021/mapbox-censales-alquileres-2021.html" allowfullscreen></iframe>
-                </div>
     </div>
     
 

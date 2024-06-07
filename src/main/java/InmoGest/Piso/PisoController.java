@@ -154,4 +154,9 @@ public class PisoController {
         model.addAttribute("direccion", direccion);
         return "listaPisos";
     }
+    
+    @GetMapping("/mapa")
+public String mostrarMapa(Model model) {
+    return "mapa"; // Esto asume que tienes una plantilla llamada "mapa.html" en tu directorio de plantillas.
+}
 }
