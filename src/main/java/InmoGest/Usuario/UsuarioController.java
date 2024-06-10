@@ -1,7 +1,5 @@
 package InmoGest.Usuario;
 
-import InmoGest.Usuario.Usuario;
-import InmoGest.Usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -54,11 +52,11 @@ public class UsuarioController {
 
         if (newPassword != null && !newPassword.isEmpty()) {
             usuario.setPassword(passwordEncoder.encode(newPassword));
+            usuarioService.save(usuario);
+            return "redirect:/login?success=true"; // Redirigir al login con parámetro de éxito
         }
 
-        usuarioService.save(usuario);
-
-        model.addAttribute("success", "Usuario actualizado correctamente");
+        model.addAttribute("error", "La nueva contraseña no puede estar vacía");
         return "editarUsuario";
     }
 }
