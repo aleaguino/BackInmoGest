@@ -5,41 +5,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
+            background: linear-gradient(180deg, #005f73, #e0f7fa);
+            color: #333;
+            font-family: 'Roboto', sans-serif;
             padding-top: 60px;
-            background: linear-gradient(45deg, #FFD700, #FF6347); /* Cambia los colores del degradado si deseas */
-            color: #000; /* Color de texto para que sea legible en el fondo */
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+        .navbar-brand span {
+            font-size: 1.5rem;
+            margin-left: 10px;
+            color: #fff;
+            font-weight: 700;
         }
         .main-content {
+            background: #ffffff;
+            border-radius: 10px;
             padding: 50px;
-        }
-        .triptych {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 50px;
         }
         .triptych-item {
-            flex: 0 0 calc(33.33% - 20px);
-            background-color: rgba(255, 255, 255, 0.1);
+            background: #94d2bd;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+        }
+        .triptych-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary, .btn-secondary {
+            font-size: 1.25rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: scale(1.05);
         }
         .btn-primary {
-            background-color: #FF6347; /* Cambia el color del botón a rojo claro */
-            border-color: #FF6347;
+            background-color: #028090;
+            border-color: #028090;
         }
-        .btn-primary:hover {
-            background-color: #FF5733; /* Cambia el color del botón al pasar el mouse */
-            border-color: #FF5733;
+        .btn-secondary {
+            background-color: #00a896;
+            border-color: #00a896;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .footer {
+            background: #005f73;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .header-title img {
+            height: 60px;
+            margin-right: 20px;
+        }
+        .header-title h1 {
+            margin: 0;
+            font-weight: 700;
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: 500px; /* Ajusta la altura de las imágenes */
+            object-fit: cover; /* Ajusta el contenido de la imagen */
+        }
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            padding: 1rem;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" aria-current="page" th:href="@{/}">
-                 <img th:src="@{C:\Users\aleag\OneDrive\Escritorio\InmoGest\InmoGest\src\main\resources\assets\inmogest.png}" alt="InmoGest">
+                <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
+                <span>InmoGest</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,10 +120,15 @@
             </div>
         </div>
     </nav>
+    
     <div class="container main-content">
-        <div class="row">
-            <h1 class="text-center">Bienvenidos a InmoGest - Gestión de Inmuebles</h1>
+        <div class="row header-title">
+            <div class="col text-center">
+                <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
+                <h1>Bienvenidos a InmoGest - Gestión de Inmuebles</h1>
+            </div>
         </div>
+        
         <div class="row mt-4">
             <div class="col-md-6 offset-md-3">
                 <a href="/login" class="btn btn-primary btn-lg d-block mb-3">Iniciar Sesión</a>
@@ -67,38 +136,94 @@
             </div>
         </div>
 
-        <div class="triptych">
-            <div class="triptych-item">
-                <h2>Administración de Propiedades</h2>
-                <p>Administra tus propiedades de manera eficiente. Gestiona alquileres, ventas y mantenimiento fácilmente.</p>
+        <!-- Carrusel de Imágenes -->
+        <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="triptych-item">
-                <h2>Seguimiento y Mantenimiento</h2>
-                <p>Supervisa el estado de tus inmuebles, realiza mantenimiento preventivo y asegúrate de su correcto funcionamiento.</p>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img th:src="@{/assets/contacto.png}" class="d-block w-100" alt="Con nuestra herramienta tendrá el acceso completo a los datos acerca de sus inmuebles">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Acceso Completo</h5>
+                        <p>Con nuestra herramienta tendrá el acceso completo a los datos acerca de sus inmuebles.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/assets/analisis.jpg}" class="d-block w-100" alt="Confía en nuestros estudios de mercados de alquileres, con mapa incluido">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Estudios de Mercados</h5>
+                        <p>Confía en nuestros estudios de mercados de alquileres, con mapa incluido.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/assets/gestor.png}" class="d-block w-100" alt="Gestión Eficiente">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Gestión Eficiente</h5>
+                        <p>Administra tus propiedades de manera eficiente con nuestra herramienta.</p>
+                    </div>
+                </div>
             </div>
-            <div class="triptych-item">
-                <h2>Interacción con Clientes</h2>
-                <p>Ofrece un entorno seguro para la información sensible. Protege la privacidad y evita vulnerabilidades.</p>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
-        <div class="triptych mt-5">
-            <div class="triptych-item">
-                <h2>Personalización</h2>
-                <p>Adapta InmoGest a tus necesidades, personaliza los datos y las vistas según tus preferencias.</p>
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="triptych-item text-center">
+                    <h2>Administración de Propiedades</h2>
+                    <p>Administra tus propiedades de manera eficiente. Gestiona alquileres, ventas y mantenimiento fácilmente.</p>
+                </div>
             </div>
-            <div class="triptych-item">
-                <h2>Seguridad</h2>
-                <p>Protege la información sensible de tus clientes y garantiza la seguridad de las transacciones.</p>
+            <div class="col-md-4 mb-4">
+                <div class="triptych-item text-center">
+                    <h2>Seguimiento y Mantenimiento</h2>
+                    <p>Supervisa el estado de tus inmuebles, realiza mantenimiento preventivo y asegúrate de su correcto funcionamiento.</p>
+                </div>
             </div>
-            <div class="triptych-item">
-                <h2>Colaboración</h2>
-                <p>Facilita la colaboración entre los usuarios, permitiendo la compartición de información y recursos.</p>
+            <div class="col-md-4 mb-4">
+                <div class="triptych-item text-center">
+                    <h2>Interacción con Clientes</h2>
+                    <p>Ofrece un entorno seguro para la información sensible. Protege la privacidad y evita vulnerabilidades.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="triptych-item text-center">
+                    <h2>Personalización</h2>
+                    <p>Adapta InmoGest a tus necesidades, personaliza los datos y las vistas según tus preferencias.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="triptych-item text-center">
+                    <h2>Seguridad</h2>
+                    <p>Protege la información sensible de tus clientes y garantiza la seguridad de las transacciones.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="triptych-item text-center">
+                    <h2>Colaboración</h2>
+                    <p>Facilita la colaboración entre los usuarios, permitiendo la compartición de información y recursos.</p>
+                </div>
             </div>
         </div>
     </div>
     
-
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 InmoGest. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>

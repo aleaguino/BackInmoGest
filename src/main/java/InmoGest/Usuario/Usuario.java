@@ -2,6 +2,7 @@ package InmoGest.Usuario;
 
 import InmoGest.Piso.Piso;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Data
@@ -36,7 +38,8 @@ public class Usuario implements Serializable {
     private String password;
     private String email;
     private int telefono;
-    private String fecha;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private LocalDate fecha;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Piso> pisos = new ArrayList<>();

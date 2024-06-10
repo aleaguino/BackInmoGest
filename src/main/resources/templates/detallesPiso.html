@@ -1,24 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>Detalles del Piso</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles del Piso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(180deg, #005f73, #e0f7fa);
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            padding-top: 60px;
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+        .main-content {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 50px;
+        }
+        .btn-primary {
+            font-size: 1.25rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 20px;
+            background-color: #028090;
+            border-color: #028090;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .footer {
+            background: #005f73;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .table-section {
+            margin-bottom: 40px;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .header-title img {
+            height: 60px;
+            margin-right: 20px;
+        }
+        .header-title h1 {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" aria-current="page" th:href="@{/piso/piso}">
-            <img src="resources/assets/inmogest.png" alt="InmoGest" height="100">
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" aria-current="page" th:href="@{/piso/piso}">
+                <img th:src="@{assets/inmogest.png}" alt="InmoGest">
+            </a>
+        </div>
     </nav>
 
-    <div class="container mt-4">
-        <h1 class="text-center">Detalles del Piso</h1>
-
+    <div class="container main-content">
+        <div class="row header-title">
+            <div class="col text-center">
+                <img th:src="@{assets/inmogest.png}" alt="InmoGest">
+                <h1>Detalles del Piso</h1>
+            </div>
+        </div>
         <!-- Tabla de Datos Generales -->
-        <div class="mb-4">
+        <div class="table-section">
             <h2 class="text-center">Datos Generales</h2>
             <table class="table table-striped">
                 <tr>
@@ -45,7 +106,7 @@
         </div>
         
         <!-- Tabla de Ingresos -->
-        <div class="mb-4">
+        <div class="table-section">
             <h2 class="text-center">Ingresos</h2>
             <table class="table table-striped">
                 <tr>
@@ -60,7 +121,7 @@
         </div>
 
         <!-- Tabla de Datos del Inquilino -->
-        <div>
+        <div class="table-section">
             <h2 class="text-center">Datos del Inquilino</h2>
             <table class="table table-striped">
                 <tr>
@@ -87,12 +148,11 @@
                     <th>Observación del inquilino</th>
                     <td th:text="${piso.observacion}">Observación del inquilino</td>
                 </tr>
-
             </table>
         </div>
         
         <!-- Tabla de Gastos -->
-        <div>
+        <div class="table-section">
             <h2 class="text-center">Gastos</h2>
             <table class="table table-striped">
                 <tr>
@@ -139,7 +199,13 @@
             <a class="btn btn-primary" th:href="@{/piso/modificar/{id}(id=${piso.id})}">Editar</a>
         </div>
     </div>
-
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 InmoGest. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -5,7 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(180deg, #005f73, #e0f7fa);
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            padding-top: 60px;
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+        .navbar-brand span {
+            font-size: 1.5rem;
+            margin-left: 10px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .main-content {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 50px;
+        }
+        .btn-primary, .btn-danger, .btn-warning, .btn-success, .btn-outline-success {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .btn-primary:hover, .btn-danger:hover, .btn-warning:hover, .btn-success:hover, .btn-outline-success:hover {
+            transform: scale(1.05);
+        }
+        .btn-primary {
+            background-color: #028090;
+            border-color: #028090;
+        }
+        .btn-danger {
+            background-color: #d9534f;
+            border-color: #d9534f;
+        }
+        .btn-warning {
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
+        }
+        .btn-success {
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+        }
+        .btn-outline-success {
+            color: #5cb85c;
+            border-color: #5cb85c;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .footer {
+            background: #005f73;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            font-size: 2rem;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .header-title img {
+            height: 60px;
+            margin-right: 20px;
+        }
+        .header-title h1 {
+            margin: 0;
+            font-weight: 700;
+        }
         .text-center th,
         .text-center td {
             text-align: center;
@@ -16,10 +99,10 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            height: 100px; /* Ajusta según sea necesario */
+            height: 100px;
         }
         .totals div {
-            font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
+            font-size: 1.5em;
         }
         .income {
             color: green;
@@ -32,35 +115,54 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            bottom: -30px; /* Ajusta para moverlo un poco más abajo */
+            bottom: -30px;
+        }
+        .search-input {
+            height: 34px; /* Ajuste de altura */
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
-                </li>
-                <li class="nav-item">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" aria-current="page" th:href="@{/}">
+                <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
+                <span>InmoGest</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" th:href="@{/logout}">Logout</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" th:href="@{/piso/mapa}">Mapa</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/editar}">Editar Usuario</a>
-                </li>
-            </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" th:href="@{/piso/contacto}">Contacta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" th:href="@{/editar}">Editar Usuario</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <div class="container mt-4">
+    
+    <div class="container main-content">
+        <div class="row header-title">
+            <div class="col text-center">
+                <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
+                <h1>Lista de Inmuebles</h1>
+            </div>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h1 class="text-center">Mis Pisos</h1>
-                <h2 th:text="${usuario.username}" class="text-center"></h2>
+            <div class="col-md-10">
+                <h2 th:text="${usuario.username}" class="text-center mb-4"></h2>
                 <form th:action="@{/piso/buscar}" method="get" class="d-flex mb-4" id="searchForm">
-                    <input class="form-control me-2" type="search" placeholder="Buscar por dirección" name="direccion" th:value="${direccion}" id="searchInput">
+                    <input class="form-control me-2 search-input" type="search" placeholder="Buscar por dirección" name="direccion" th:value="${direccion}" id="searchInput">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
                 <table class="table table-striped table-hover">
@@ -92,17 +194,23 @@
                     </tbody>
                 </table>
                 <div class="text-center">
-                    <a th:href="@{/piso/formulario}" class="btn btn-success">Agregar Piso</a>
+                    <a th:href="@{/piso/formulario}" class="btn btn-success">Agregar Inmueble</a>
                 </div>
                 <div class="totals mt-4">
                     <div class="income">Total Ingresos: <span th:text="${totalIngresos}"></span></div>
                     <div class="expense">Total Gastos: <span th:text="${totalGastos}"></span></div>
-                    <div class="difference">Diferencia: <span th:text="${diferencia}"></span></div>
+                    <div class="difference">Ingreso Neto: <span th:text="${diferencia}"></span></div>
                 </div>
             </div>
         </div>
     </div>
-
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 InmoGest. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script>
         function editarPiso(id) {
