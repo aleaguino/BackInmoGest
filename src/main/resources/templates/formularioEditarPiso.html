@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Piso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background: linear-gradient(180deg, #005f73, #e0f7fa);
             color: #333;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             padding-top: 60px;
         }
         .navbar-brand img {
             height: 40px;
+        }
+        .navbar-brand span {
+            font-size: 1.5rem;
+            margin-left: 10px;
+            color: #fff;
+            font-weight: 700;
         }
         .main-content {
             background: #ffffff;
@@ -32,6 +39,18 @@
             border-color: #028090;
         }
         .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            font-size: 1.25rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 20px;
+            background-color: #00a896;
+            border-color: #00a896;
+        }
+        .btn-secondary:hover {
             transform: scale(1.05);
         }
         .container {
@@ -65,6 +84,7 @@
         }
         .header-title h1 {
             margin: 0;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -72,14 +92,15 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img th:src="@{assets/inmogest.png}" alt="InmoGest">
+            <a class="navbar-brand" aria-current="page" th:href="@{/piso/piso}">
+                <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
+                <span>InmoGest</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
                     </li>
@@ -91,7 +112,7 @@
     <div class="container main-content">
         <div class="row header-title">
             <div class="col text-center">
-                <img th:src="@{assets/inmogest.png}" alt="InmoGest">
+                <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
                 <h1>Modificar Piso</h1>
             </div>
         </div>
@@ -203,6 +224,7 @@
             
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a th:href="@{/piso/piso}" class="btn btn-secondary">Volver a Mis Pisos</a>
             </div>
         </form>
     </div>

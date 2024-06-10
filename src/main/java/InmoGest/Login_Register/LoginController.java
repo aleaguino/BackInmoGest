@@ -12,6 +12,7 @@ public class LoginController {
     public String mostrarFormularioLogin(
             @RequestParam(value = "error", required = false) String error,
             @RequestParam(value = "success", required = false) String success,
+            @RequestParam(value = "cambio", required = false) String cambio,
             Model model) {
 
         if (error != null) {

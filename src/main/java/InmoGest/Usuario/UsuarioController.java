@@ -36,6 +36,7 @@ public class UsuarioController {
     @PostMapping("/editar")
     public String editarUsuario(@RequestParam String password,
                                 @RequestParam(required = false) String newPassword,
+                                @RequestParam(required = false) String confirmPassword,
                                 Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUsername = authentication.getName();
@@ -46,11 +47,15 @@ public class UsuarioController {
         }
 
         if (!passwordEncoder.matches(password, usuario.getPassword())) {
-            model.addAttribute("error", "Contraseña incorrecta");
+            model.addAttribute("error", "Contraseña actual incorrecta");
             return "editarUsuario";
         }
 
         if (newPassword != null && !newPassword.isEmpty()) {
+            if (!newPassword.equals(confirmPassword)) {
+                model.addAttribute("error", "Las nuevas contraseñas no coinciden");
+                return "editarUsuario";
+            }
             usuario.setPassword(passwordEncoder.encode(newPassword));
             usuarioService.save(usuario);
             return "redirect:/login?success=true"; // Redirigir al login con parámetro de éxito

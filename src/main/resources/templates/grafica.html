@@ -19,18 +19,17 @@
         .main-content {
             background: #ffffff;
             border-radius: 10px;
-            padding: 50px;
+            padding: 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
         .iframe-container {
             width: 100%;
-            height: calc(100vh - 60px); /* Ocupa toda la altura de la pantalla menos la altura de la navbar */
-            margin-top: 50px;
+            margin-top: 20px;
         }
         .iframe-container iframe {
             width: 100%;
-            height: 100%;
+            height: 400px; /* Ajusta la altura según sea necesario */
             border: none; /* Elimina el borde del iframe */
         }
         .btn-primary, .btn-secondary {
@@ -53,6 +52,7 @@
         }
         .container {
             margin-top: 50px;
+            max-width: 90%; /* Ocupa el 90% del ancho de la pantalla */
         }
         .footer {
             background: #005f73;
@@ -61,18 +61,9 @@
             text-align: center;
         }
         .header-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 20px;
             font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto al título */
-        }
-        .header-title img {
-            height: 60px;
-            margin-right: 20px;
-        }
-        .header-title h1 {
-            margin: 0;
         }
     </style>
 </head>
@@ -81,6 +72,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" aria-current="page" th:href="@{/piso/piso}">
                 <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
+                <span>InmoGest</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -99,11 +91,49 @@
     </nav>
 
     <div class="container main-content">
-        <div class="header-title">
-            <h1>Mapa de Alquileres</h1>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="main-content">
+                    <div class="header-title">
+                        <h1>Precio de la Vivienda</h1>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe src="https://embed.epdata.es/representacion/5448295a-29af-4bcb-9ced-88e9074ced61-106/450" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="main-content">
+                    <div class="header-title">
+                        <h1>Gráfica Porcentual del EURIBOR</h1>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe src="https://embed.epdata.es/representacion/41fb76b7-6d49-46f5-b60d-ef95d3b311bc/450" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="iframe-container">
-            <iframe src="https://lab.eldiario.es/elections-maps/mapas-censales/alquileres-2021/mapbox-censales-alquileres-2021.html" allowfullscreen></iframe>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="main-content">
+                    <div class="header-title">
+                        <h1>Valoración Anual IPC</h1>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe src="https://embed.epdata.es/representacion/6de4620e-10c3-4fd8-b6d0-e235d4a427d9/450" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="main-content">
+                    <div class="header-title">
+                        <h1>Tipo de Compra</h1>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe src="https://embed.epdata.es/representacion/99110442-3f47-4bd8-add5-0405dc457ace/450" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -112,7 +142,7 @@
             <p>&copy; 2024 InmoGest. Todos los derechos reservados.</p>
         </div>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>
