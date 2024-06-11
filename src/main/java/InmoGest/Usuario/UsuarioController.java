@@ -47,8 +47,7 @@ public class UsuarioController {
         }
 
         if (!passwordEncoder.matches(password, usuario.getPassword())) {
-            model.addAttribute("error", "Contraseña actual incorrecta");
-            return "editarUsuario";
+            return "redirect:/login?cambio=true";
         }
 
         if (newPassword != null && !newPassword.isEmpty()) {

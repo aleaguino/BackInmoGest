@@ -23,6 +23,10 @@ public class LoginController {
             model.addAttribute("success", "Contraseña cambiada correctamente. Por favor, inicia sesión.");
         }
 
+        if (cambio != null) {
+            model.addAttribute("cambio", "Contraseña actual incorrecta. Por favor, inicie sesión de nuevo.");
+        }
+        
         return "login";
     }
 }

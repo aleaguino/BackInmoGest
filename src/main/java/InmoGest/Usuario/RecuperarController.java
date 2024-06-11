@@ -40,7 +40,7 @@ public class RecuperarController {
         if (usuario != null) {
             usuario.setPassword(passwordEncoder.encode(nuevaContraseña));
             usuarioService.save(usuario);
-            return "redirect:/login?cambio=true";
+            return "redirect:/login?success=true";
         } else {
             return "redirect:/recuperar?error=true";
         }
