@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Mapa</title>
+    <title>Calculadora Hipotecaria</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -19,40 +19,40 @@
         .main-content {
             background: #ffffff;
             border-radius: 10px;
-            padding: 20px;
+            padding: 50px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            margin-bottom: 50px;
+            margin-top: 50px;
+            position: relative;
         }
         .iframe-container {
-            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-top: 20px;
         }
         .iframe-container iframe {
-            width: 100%;
-            height: 400px; /* Ajusta la altura según sea necesario */
+            width: 460px;
+            height: 700px;
             border: none; /* Elimina el borde del iframe */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .btn-primary, .btn-secondary {
+        .btn-primary {
             font-size: 1.25rem;
             padding: 0.75rem 1.5rem;
             border-radius: 10px;
             transition: background-color 0.3s ease, transform 0.3s ease;
             margin-bottom: 20px;
-        }
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: scale(1.05);
-        }
-        .btn-primary {
             background-color: #028090;
             border-color: #028090;
         }
-        .btn-secondary {
-            background-color: #00a896;
-            border-color: #00a896;
+        .btn-primary:hover {
+            transform: scale(1.05);
         }
         .container {
             margin-top: 50px;
-            max-width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+            max-width: 800px;
         }
         .footer {
             background: #005f73;
@@ -62,8 +62,28 @@
         }
         .header-title {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto al título */
+        }
+        .header-title img {
+            height: 60px;
+            margin-right: 20px;
+        }
+        .header-title h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #028090;
+        }
+        .bg-decorative {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/800x400') no-repeat center center / cover;
+            opacity: 0.1;
+            z-index: -1;
         }
     </style>
 </head>
@@ -88,50 +108,13 @@
     </nav>
 
     <div class="container main-content">
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="main-content">
-                    <div class="header-title">
-                        <h1>Precio del m2</h1>
-                    </div>
-                    <div class="iframe-container">
-                        <iframe src="https://embed.epdata.es/representacion/9885ae47-3986-4e37-ba24-69071cc1fbf7-106/450" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="main-content">
-                    <div class="header-title">
-                        <h1>Gráfica Porcentual del EURIBOR</h1>
-                    </div>
-                    <div class="iframe-container">
-                        <iframe src="https://embed.epdata.es/representacion/41fb76b7-6d49-46f5-b60d-ef95d3b311bc/450" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
+        <div class="header-title">
+            <h1>Calculadora Hipotecaria</h1>
         </div>
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="main-content">
-                    <div class="header-title">
-                        <h1>Valoración Anual IPC</h1>
-                    </div>
-                    <div class="iframe-container">
-                        <iframe src="https://embed.epdata.es/representacion/6de4620e-10c3-4fd8-b6d0-e235d4a427d9/450" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="main-content">
-                    <div class="header-title">
-                        <h1>Tipo de Compra</h1>
-                    </div>
-                    <div class="iframe-container">
-                        <iframe src="https://embed.epdata.es/representacion/99110442-3f47-4bd8-add5-0405dc457ace/450" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
+        <div class="iframe-container">
+            <iframe src="https://www.mortgagecalculator.biz/c/appspanish.php" frameborder="0"></iframe>
         </div>
+        <div class="bg-decorative"></div>
     </div>
 
     <footer class="footer">
@@ -139,7 +122,7 @@
             <p>&copy; 2024 InmoGest. Todos los derechos reservados.</p>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>

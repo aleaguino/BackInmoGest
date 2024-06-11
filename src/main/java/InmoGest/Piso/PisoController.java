@@ -157,16 +157,23 @@ public class PisoController {
     
     @GetMapping("/mapa")
     public String mostrarMapa(Model model) {
-        return "mapa"; // Esto asume que tienes una plantilla llamada "mapa.html" en tu directorio de plantillas.
+        return "mapa";
     }
 
     @GetMapping("/contacto")
     public String mostrarContacta(Model model) {
-        return "contacta"; // Esto asume que tienes una plantilla llamada "mapa.html" en tu directorio de plantillas.
+        return "contacta";
     }
     
     @GetMapping("/grafica")
     public String mostrarGrafica(Model model) {
-        return "grafica"; // Esto asume que tienes una plantilla llamada "mapa.html" en tu directorio de plantillas.
+        return "grafica";
     }
+    
+    @GetMapping("/calculadora")
+    public String mostrarCalendario(Model model) {
+        return "calculadora";
+}
+
+    
 }
