@@ -44,12 +44,12 @@
         .main-content {
             background: #ffffff;
             border-radius: 10px;
-            padding: 40px; /* Ajuste de padding */
+            padding: 40px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             margin: auto;
             width: 100%;
-            max-width: 550px; /* Ajuste del ancho máximo */
-            height: 700px; /* Ajuste de altura */
+            max-width: 550px;
+            height: 700px;
         }
         .btn-primary {
             font-size: 1.25rem;
@@ -68,7 +68,7 @@
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
-            margin-top: auto; /* Asegura que el footer esté al final de la página */
+            margin-top: auto;
         }
         .card {
             border-radius: 10px;
@@ -93,6 +93,9 @@
         }
         .input-group-text {
             cursor: pointer;
+        }
+        .alert-danger {
+            color: red;
         }
     </style>
 </head>
@@ -139,8 +142,11 @@
                         <div th:if="${success}" class="alert alert-success mt-3" role="alert">
                             [[${success}]]
                         </div>
-                        <div th:if="${cambio}" class="alert alert-success mt-3" role="alert">
+                        <div th:if="${cambio}" class="alert alert-danger mt-3" role="alert">
                             [[${cambio}]]
+                        </div>
+                        <div th:if="${correcto}" class="alert alert-success mt-3" role="alert">
+                            [[${correcto}]]
                         </div>
                         <div class="mt-3 text-center">
                             <a th:href="@{/registro}">¿No tienes una cuenta? Regístrate</a><br>

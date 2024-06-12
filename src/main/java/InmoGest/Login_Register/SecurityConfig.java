@@ -28,21 +28,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       http.authorizeRequests()
-        .antMatchers("/", "/registro", "/assets/**", "/static/**", "/css/**", "/js/**", "/images/**").permitAll()
+        http.authorizeRequests()
+        .antMatchers("/", "/recuperar", "/registro", "/cambiarContraseña", "/assets/**", "/static/**", "/css/**", "/js/**", "/images/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .formLogin()
         .loginPage("/login")
-        .defaultSuccessUrl("/piso/piso", true) // Especifica la URL de destino
+        .defaultSuccessUrl("/piso/piso", true)
         .failureUrl("/login?error=true")
         .permitAll()
         .and()
         .logout()
         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
         .permitAll();
-       
-    }
+}
 
     @Bean
     public PasswordEncoder passwordEncoder() {

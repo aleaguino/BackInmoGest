@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class RecuperarController {
@@ -18,8 +19,9 @@ public class RecuperarController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/recuperar")
-    public String mostrarFormularioRecuperar() {
-        return "recuperar"; // Asegúrate de tener este archivo en templates
+    public String mostrarFormularioRecuperar(Model model) {
+        model.addAttribute("error", false);
+        return "recuperar";
     }
 
     @PostMapping("/recuperar")
@@ -27,22 +29,24 @@ public class RecuperarController {
         Usuario usuario = usuarioService.findByUsername(username);
         if (usuario != null && usuario.getFecha().toString().equals(fecha)) {
             model.addAttribute("usuario", usuario);
-            return "cambiarContraseña"; // Asegúrate de tener este archivo en templates
+            return "cambiarContraseña";
         } else {
             model.addAttribute("error", "Usuario o fecha de nacimiento incorrectos.");
-            return "recuperar"; // Asegúrate de tener este archivo en templates
+            return "recuperar";
         }
     }
 
     @PostMapping("/cambiarContraseña")
-    public String cambiarContraseña(@RequestParam Long id, @RequestParam String nuevaContraseña) {
+    public String cambiarContraseña(@RequestParam Long id, @RequestParam String nuevaContraseña, RedirectAttributes redirectAttributes) {
         Usuario usuario = usuarioService.obtenerUsuarioPorId(id);
         if (usuario != null) {
             usuario.setPassword(passwordEncoder.encode(nuevaContraseña));
             usuarioService.save(usuario);
-            return "redirect:/login?success=true";
+            redirectAttributes.addFlashAttribute("correcto", "Contraseña cambiada correctamente.");
+            return "redirect:/login";
         } else {
-            return "redirect:/recuperar?error=true";
+            redirectAttributes.addFlashAttribute("error", "Error al cambiar la contraseña. Por favor, inténtelo de nuevo.");
+            return "redirect:/recuperar";
         }
     }
 }
