@@ -92,7 +92,6 @@
             margin: 5px;
         }
         .triptych-item {
-            background: #94d2bd;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -102,10 +101,48 @@
             justify-content: center;
             align-items: center;
             height: 250px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .triptych-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            z-index: 1;
+        }
+        .triptych-item h2, .triptych-item p {
+            position: relative;
+            z-index: 2;
         }
         .triptych-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .admin-prop {
+            background-image: url('/assets/propiedades.png');
+        }
+        .seg-mant {
+            background-image: url('/assets/seguimiento.jpg');
+        }
+        .inter-clients {
+            background-image: url('/assets/cifrado.jpg');
+        }
+        .personalization {
+            background-image: url('/assets/perso.png');
+        }
+        .security {
+            background-image: url('/assets/seguridad.png');
+        }
+        .collaboration {
+            background-image: url('/assets/inversion.jpg');
         }
         .btn-primary {
             font-size: 1.25rem;
@@ -241,19 +278,19 @@
 
         <div class="row mt-5">
             <div class="col-md-4 mb-4">
-                <div class="triptych-item text-center">
+                <div class="triptych-item text-center admin-prop">
                     <h2>Administración de Propiedades</h2>
                     <p>Administra tus propiedades de manera eficiente. Gestiona alquileres, ventas y mantenimiento fácilmente.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="triptych-item text-center">
+                <div class="triptych-item text-center seg-mant">
                     <h2>Seguimiento y Mantenimiento</h2>
                     <p>Supervisa el estado de tus inmuebles, realiza mantenimiento preventivo y asegúrate de su correcto funcionamiento.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="triptych-item text-center">
+                <div class="triptych-item text-center inter-clients">
                     <h2>Interacción con Clientes</h2>
                     <p>Ofrece un entorno seguro para la información sensible. Protege la privacidad y evita vulnerabilidades.</p>
                 </div>
@@ -261,19 +298,19 @@
         </div>
         <div class="row mt-5">
             <div class="col-md-4 mb-4">
-                <div class="triptych-item text-center">
+                <div class="triptych-item text-center personalization">
                     <h2>Personalización</h2>
                     <p>Adapta InmoGest a tus necesidades, personaliza los datos y las vistas según tus preferencias.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="triptych-item text-center">
+                <div class="triptych-item text-center security">
                     <h2>Seguridad</h2>
                     <p>Protege la información sensible de tus clientes y garantiza la seguridad de las transacciones.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="triptych-item text-center">
+                <div class="triptych-item text-center collaboration">
                     <h2>Colaboración</h2>
                     <p>Facilita la colaboración entre los usuarios, permitiendo la compartición de información y recursos.</p>
                 </div>
