@@ -1,5 +1,6 @@
 package InmoGest.Usuario;
 
+import InmoGest.Contacta.Contacta;
 import InmoGest.Piso.Piso;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -60,5 +61,6 @@ public class Usuario implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
 
