@@ -16,11 +16,13 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         .navbar {
             background: #028090;
             padding: 0.75rem 1rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
         .navbar-brand img {
             height: 40px;
@@ -43,29 +45,24 @@
         .main-content {
             background: #ffffff;
             border-radius: 10px;
-            padding: 50px;
+            padding: 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin-bottom: 50px;
-            margin-top: 50px;
-            position: relative;
-            max-width: 800px;
-            width: 90%; /* Ocupa el 90% del ancho de la pantalla */
-            margin-left: auto;
-            margin-right: auto;
+            margin: 50px 0;
+            width: auto; /* Ajusta el ancho automáticamente según el contenido */
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .iframe-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
             margin-top: 20px;
         }
         .iframe-container iframe {
             width: 100%;
             max-width: 460px;
-            height: 700px;
+            height: 800px; /* Aumenta la altura para que se vea completa */
             border: none; /* Elimina el borde del iframe */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .btn-primary {
             font-size: 1.25rem;
@@ -85,21 +82,22 @@
             padding: 20px 0;
             text-align: center;
             margin-top: auto;
+            width: 100%;
         }
         .header-title {
-            text-align: center;
-            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
             font-family: 'Montserrat', sans-serif; /* Aplica la fuente Montserrat al título */
         }
         .header-title img {
             height: 60px;
-            margin-right: 20px;
+            margin-right: 10px;
         }
         .header-title h1 {
             margin: 0;
-            font-size: 2.5rem;
             font-weight: 700;
-            color: #028090;
         }
         .bg-decorative {
             position: absolute;
@@ -123,10 +121,27 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" th:href="@{/logout}">Logout</a>
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/grafica}">Grafica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/mapa}">Mapa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/calculadora}">Calculadora</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/editar}">Cambiar Contraseña</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/contacta}">Contacta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/logout}">Logout</a>
                     </li>
                 </ul>
             </div>

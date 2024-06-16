@@ -179,20 +179,7 @@ public class PisoController {
     }
     
     @GetMapping("/propiedades")
-    public String mostrarPropiedades(Model model, Principal principal) {
-        String username = principal.getName();
-        Usuario usuario = usuarioService.findByUsername(username);
-        List<Piso> pisos = pisoService.obtenerPisosPorUsuario(usuario);
-
-        Map<String, Long> propiedadesPorCiudad = pisos.stream()
-                .collect(Collectors.groupingBy(Piso::getCiudad, Collectors.counting()));
-
-        List<String> cities = new ArrayList<>(propiedadesPorCiudad.keySet());
-        List<Long> propertyCounts = new ArrayList<>(propiedadesPorCiudad.values());
-
-        model.addAttribute("cities", cities);
-        model.addAttribute("propertyCounts", propertyCounts);
-
+    public String mostrarPropiedades(Model model) {
         return "propiedades";
     }
 }

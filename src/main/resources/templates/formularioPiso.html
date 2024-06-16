@@ -117,10 +117,27 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/grafica}">Grafica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/mapa}">Mapa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/calculadora}">Calculadora</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" th:href="@{/logout}">Logout</a>
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/editar}">Cambiar Contraseña</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/contacta}">Contacta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/logout}">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -131,13 +148,13 @@
         <div class="row header-title">
             <div class="col text-center">
                 <img th:src="@{/assets/inmogest.png}" alt="InmoGest">
-                <h1>Formulario de Piso</h1>
+                <h1>Formulario de Inmueble</h1>
             </div>
         </div>
         <form th:action="@{/piso/guardar}" th:object="${piso}" method="post">
             <!-- Datos del Piso -->
             <div class="form-section">
-                <h3>Datos del Piso</h3>
+                <h3>Datos del Inmueble</h3>
                 <div class="mb-3">
                     <label for="ciudad" class="form-label">Ciudad:</label>
                     <input type="text" id="ciudad" name="ciudad" th:field="*{ciudad}" class="form-control" required>

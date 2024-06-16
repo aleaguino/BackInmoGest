@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Propiedades por Ciudad</title>
+    <title>Ventas de Viviendas de Lujo en España</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,10 +88,27 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/grafica}">Grafica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/mapa}">Mapa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/piso/calculadora}">Calculadora</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" th:href="@{/logout}">Logout</a>
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/editar}">Cambiar Contraseña</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/contacta}">Contacta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" th:href="@{/logout}">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -101,11 +118,11 @@
     <div class="container main-content">
         <div class="row header-title">
             <div class="col text-center">
-                <h1>Propiedades por Ciudad</h1>
+                <h1>Compraventas en 2024 en España</h1>
             </div>
         </div>
         <div class="chart-container">
-            <canvas id="myChart"></canvas>
+            <canvas id="luxuryHousingChart"></canvas>
         </div>
     </div>
     
@@ -117,20 +134,24 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('myChart').getContext('2d');
-            const cities = /*[[${cities}]]*/ '[]';
-            const propertyCounts = /*[[${propertyCounts}]]*/ '[]';
-
-            const parsedCities = JSON.parse(cities);
-            const parsedPropertyCounts = JSON.parse(propertyCounts);
+            const ctx = document.getElementById('luxuryHousingChart').getContext('2d');
+            
+            const cities = [
+                'Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Malaga', 'Zaragoza', 
+                'Alicante', 'Murcia', 'Palma', 'Córdoba'
+            ];
+            const propertyCounts = [
+                31522, 11935, 8677, 6993, 6351, 5930, 4882, 4462, 3604, 
+                3491
+            ];
 
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: parsedCities,
+                    labels: cities,
                     datasets: [{
                         label: 'Número de Inmuebles',
-                        data: parsedPropertyCounts,
+                        data: propertyCounts,
                         backgroundColor: 'rgba(0, 123, 255, 0.5)',
                         borderColor: 'rgba(0, 123, 255, 1)',
                         borderWidth: 1
